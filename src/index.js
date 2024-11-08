@@ -28,9 +28,11 @@ const createWindow = () => {
     y: 0,
     webPreferences: {
       preload: path.join(__dirname, 'preload.js'),
-      webSecurity: false,
     },
   });
+
+  // Set the zoom factor to 100%
+  mainWindow.webContents.setZoomFactor(1.0);
 
   // generate main menu
   generateMenu({mainWindow});
