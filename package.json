@@ -1,0 +1,38 @@
+{
+  "name": "zen-electron",
+  "productName": "Zenq",
+  "version": "1.0.0",
+  "description": "A live coding environment with quantum algorithm integration",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "IS_LOCAL_DEVELOP=true electron-forge start",
+    "package": "electron-forge package",
+    "make": "IS_LOCAL_DEVELOP=false electron-forge make",
+    "publish": "electron-forge publish",
+    "lint": "echo \"No linting configured\""
+  },
+  "keywords": [],
+  "author": {
+    "name": "petethomasmusique",
+    "email": "petethomasmusique@gmail.com"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "electron-serve": "^1.2.0",
+    "electron-squirrel-startup": "^1.0.0",
+    "electron-store": "^8.1.0",
+    "express": "^4.18.3"
+  },
+  "devDependencies": {
+    "@electron-forge/cli": "^6.4.2",
+    "@electron-forge/maker-deb": "^6.4.2",
+    "@electron-forge/maker-rpm": "^6.4.2",
+    "@electron-forge/maker-squirrel": "^6.4.2",
+    "@electron-forge/maker-zip": "^6.4.2",
+    "@electron-forge/plugin-auto-unpack-natives": "^6.4.2",
+    "@electron-forge/publisher-github": "^7.4.0",
+    "electron": "27.0.3"
+  }
+}
