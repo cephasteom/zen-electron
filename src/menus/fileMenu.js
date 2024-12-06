@@ -18,15 +18,15 @@ module.exports.generateFileMenu = ({
                 accelerator: 'CmdOrCtrl+R',
                 click: () => mainWindow.reload()
             },
-            // { label: 'Select Samples Directory', click: () => {
-            //     dialog.showOpenDialog({
-            //         title: 'Select Sample Library',
-            //         properties: ['openDirectory']
-            //     }).then(({canceled, filePaths}) => {
-            //         if (canceled) return;
-            //         serveSamples(filePaths[0], mainWindow);
-            //     })
-            // } },
+            { label: 'Select Samples Directory', click: () => {
+                dialog.showOpenDialog({
+                    title: 'Select Sample Library',
+                    properties: ['openDirectory']
+                }).then(({canceled, filePaths}) => {
+                    if (canceled) return;
+                    serveSamples(filePaths[0], mainWindow);
+                })
+            } },
             { type: 'separator' },
             isMac ? { role: 'close' } : { role: 'quit' }
         ]
