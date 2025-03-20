@@ -1,6 +1,6 @@
 {
   "name": "zen-electron",
-  "productName": "Zenq",
+  "productName": "Zen",
   "version": "1.0.0",
   "description": "A live coding environment with quantum algorithm integration",
   "main": "src/index.js",
