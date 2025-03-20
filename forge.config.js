@@ -33,8 +33,8 @@ module.exports = {
       name: '@electron-forge/publisher-github',
       config: {
         repository: {
-          owner: 'cephas-teom',
-          name: 'zenq'
+          owner: 'cephasteom',
+          name: 'zen-electron'
         },
         prerelease: true
       }

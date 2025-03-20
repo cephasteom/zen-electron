@@ -36,10 +36,10 @@ You can develop this application and the web application concurrently.
 * `yarn make` or `npm run make` to package up the distributable for the platform you are currently working on
 * `yarn make --arch=arm64,x64` or `npm run make --arch=arm64,x64` to package up distributables for both Apple Intel and Apple Silicon chips
 
-### Publishing
+### Publishing Distributables
 To publish distributables, you must have write access to this Github repo.
 * [Generate a personal access](https://github.com/settings/tokens/new) token with write access
-* Paste token into GITHUB_TOKEN in .env file
+* Create .env file at the root of this project and token into GITHUB_TOKEN variable
 * Increment the version number in package.json
 * `yarn run publish` to publish the distributable for the platform you are currently working on
 * `yarn run publish --arch=arm64,x64` to publish distributables for both Apple Intel and Apple Silicon chips
