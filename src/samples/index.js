@@ -43,8 +43,8 @@ app.on('ready', () => {
 });
 
 app.on('quit', () => {
-    console.log('Shutting down sample server');
-    server && server.close();
+    // console.log('Shutting down sample server');
+    // server && server.close();
 })
 
 module.exports.serveSamples = serveSamples;

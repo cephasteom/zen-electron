@@ -5,7 +5,7 @@
   "description": "A live coding environment with quantum algorithm integration",
   "main": "src/index.js",
   "scripts": {
-    "start": "IS_LOCAL_DEVELOP=true electron-forge start",
+    "start": "IS_LOCAL_DEVELOP=false electron-forge start",
     "package": "electron-forge package",
     "make": "IS_LOCAL_DEVELOP=false electron-forge make",
     "publish": "electron-forge publish",
