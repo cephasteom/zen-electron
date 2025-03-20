@@ -1,7 +1,7 @@
-const a = /* @__PURE__ */ location.pathname.split("/").slice(0, -1).join("/"), t = [
-  a + "./_app/immutable/entry/app.ee3fa77a.js",
+const a = /* @__PURE__ */ location.pathname.split("/").slice(0, -1).join("/"), v = [
+  a + "./_app/immutable/entry/app.11af382d.js",
   a + "./_app/immutable/assets/0.2fd543e0.css",
-  a + "./_app/immutable/nodes/0.83a083ce.js",
+  a + "./_app/immutable/nodes/0.8a406d24.js",
   a + "./_app/immutable/assets/karma.90a376a5.png",
   a + "./_app/immutable/assets/fira-mono-cyrillic-ext-400-normal.3df7909e.woff2",
   a + "./_app/immutable/assets/fira-mono-all-400-normal.1e3b098c.woff",
@@ -10,9 +10,9 @@ const a = /* @__PURE__ */ location.pathname.split("/").slice(0, -1).join("/"), t
   a + "./_app/immutable/assets/fira-mono-greek-400-normal.a8be01ce.woff2",
   a + "./_app/immutable/assets/fira-mono-latin-ext-400-normal.6bfabd30.woff2",
   a + "./_app/immutable/assets/fira-mono-latin-400-normal.e43b3538.woff2",
-  a + "./_app/immutable/nodes/1.845bc3b9.js",
+  a + "./_app/immutable/nodes/1.d1cbc58f.js",
   a + "./_app/immutable/assets/2.5d32bf6a.css",
-  a + "./_app/immutable/nodes/2.cb6a6b11.js",
+  a + "./_app/immutable/nodes/2.53a79698.js",
   a + "./_app/immutable/assets/synth.export.bf528032.json",
   a + "./_app/immutable/assets/synth-lite.export.29519492.json",
   a + "./_app/immutable/assets/synth-gen.export.562f0fb5.json",
@@ -30,26 +30,27 @@ const a = /* @__PURE__ */ location.pathname.split("/").slice(0, -1).join("/"), t
   a + "./_app/immutable/assets/fx-delay.export.9ce6e69c.json",
   a + "./_app/immutable/assets/reverb-gen.export.83d0610a.json",
   a + "./_app/immutable/assets/3.fec5d0df.css",
-  a + "./_app/immutable/nodes/3.97fc5b29.js",
+  a + "./_app/immutable/nodes/3.3906bb7c.js",
   a + "./_app/immutable/assets/4.25c72dbb.css",
-  a + "./_app/immutable/nodes/4.75693fc1.js",
+  a + "./_app/immutable/nodes/4.0a559060.js",
   a + "./_app/immutable/assets/5.5d82eb5e.css",
-  a + "./_app/immutable/nodes/5.87a9200a.js",
+  a + "./_app/immutable/nodes/5.681383d7.js",
   a + "./_app/immutable/assets/6.07322931.css",
-  a + "./_app/immutable/nodes/6.458e6066.js",
+  a + "./_app/immutable/nodes/6.d5db6d06.js",
   a + "./_app/immutable/assets/7.b07d7153.css",
-  a + "./_app/immutable/nodes/7.ec1c535d.js",
+  a + "./_app/immutable/nodes/7.e2102703.js",
   a + "./_app/immutable/chunks/_commonjsHelpers.23102255.js",
   a + "./_app/immutable/chunks/environment.9aa685ef.js",
-  a + "./_app/immutable/chunks/index.7700cdad.js",
-  a + "./_app/immutable/chunks/index.9df835f7.js",
-  a + "./_app/immutable/chunks/index.f7c4b82c.js",
+  a + "./_app/immutable/chunks/index.64203393.js",
+  a + "./_app/immutable/chunks/index.6941cd91.js",
   a + "./_app/immutable/assets/index.cb0c4400.css",
+  a + "./_app/immutable/chunks/index.a1ed4ffd.js",
   a + "./_app/immutable/chunks/javascript.291754e1.js",
   a + "./_app/immutable/chunks/preload-helper.a4192956.js",
-  a + "./_app/immutable/chunks/singletons.932fe61d.js",
-  a + "./_app/immutable/chunks/stores.3c1f9504.js",
-  a + "./_app/immutable/entry/start.355bd3a8.js"
+  a + "./_app/immutable/chunks/singletons.8e89a9d0.js",
+  a + "./_app/immutable/chunks/stores.9bc1ee8f.js",
+  a + "./_app/immutable/chunks/utils.ae7ad10d.js",
+  a + "./_app/immutable/entry/start.fd8903cb.js"
 ], c = [
   a + "/favicon.png",
   a + "/fonts/Lato/Lato-Black.ttf",
@@ -381,15 +382,15 @@ const a = /* @__PURE__ */ location.pathname.split("/").slice(0, -1).join("/"), t
   a + "/samples/wavetables/wt5.wav",
   a + "/samples/wavetables/wt6.wav",
   a + "/samples.json"
-], o = "1732883289879", w = `cache-${o}`, v = [
-  ...t,
+], o = "1742479532856", w = `cache-${o}`, t = [
+  ...v,
   // the app itself
   ...c
   // everything in `static`
 ];
 self.addEventListener("install", (s) => {
   async function l() {
-    await (await caches.open(w)).addAll(v);
+    await (await caches.open(w)).addAll(t);
   }
   s.waitUntil(l());
 });
@@ -405,7 +406,7 @@ self.addEventListener("fetch", (s) => {
     return;
   async function l() {
     const e = new URL(s.request.url), m = await caches.open(w);
-    if (v.includes(e.pathname))
+    if (t.includes(e.pathname))
       return m.match(e.pathname);
     if (e.pathname.match(/\.(wav|mp3|ogg|aac|m4a|flac|aiff|opus|webm|caf)$/)) {
       const p = await m.match(e.pathname);

@@ -1,0 +1,1 @@
+function t(e){return e.replace(/_/g," ").replace(/^\w/,r=>r.toUpperCase())}function n(e){return e.replace(/_/g,"-").toLowerCase()}const o=()=>typeof window<"u"&&!!window.isApp;export{n as a,t as f,o as i};
