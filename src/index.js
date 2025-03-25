@@ -50,6 +50,7 @@ const createWindow = () => {
 
   // Open the DevTools.
   if (isLocalDevelop) {
+    console.log('Opening DevTools');
     mainWindow.webContents.openDevTools();
   }
 };
