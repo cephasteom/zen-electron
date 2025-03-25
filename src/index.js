@@ -2,7 +2,10 @@ const { app, BrowserWindow, ipcMain } = require('electron');
 const { generateMenu } = require('./menus');
 const serve = require("electron-serve"); 
 const path = require('path');
-const { clipboard } = require('electron');
+const Store = require('electron-store');
+const { serveSamples } = require('./samples/index.js');
+
+const store = new Store();
 
 require('dotenv').config();
 
@@ -37,11 +40,10 @@ const createWindow = () => {
   // generate main menu
   generateMenu({mainWindow});
   
-  // dynamically generate menu based on updates to user presets
-  ipcMain.on('syncUserPresets', (_, userPresets) => generateMenu({userPresets, mainWindow}));
+  const sampleDirectory = store.get('sampleDirectory');
+  sampleDirectory && serveSamples(sampleDirectory);
 
-
-  // and load the index.html of the app.
+    // and load the index.html of the app.
   isLocalDevelop 
     ? mainWindow.loadURL(`http://localhost:${5173}`) // use this when running in dev mode
     : loadURL(mainWindow);

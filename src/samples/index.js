@@ -1,50 +1,73 @@
 const { app } = require('electron');
-const fs = require('fs');
 const http = require('http');
-const path = require('path');
+const fs = require('fs');
 const express = require('express');
 const expressApp = express();
 const cors = require('cors');
-
-const Store = require('electron-store');
-const store = new Store();
+const dirTree = require("directory-tree");
 
 let server;
 
-const serveSamples = function(directory, mainWindow) {
-    // clean up old server
-    server && server.close();
-
-    fs.readdir(directory, (err, files) => {
-        if (err) {
-            console.error("An error occurred reading the directory :", err);
-            return;
-        }
-        const samples = files
-            .filter(file => ['.wav', '.mp3', '.flac'].includes(path.extname(file)))
-            .map(file => `http://localhost:1024/samples/${file}`)
-
-        expressApp.use(cors());
-        expressApp.use('/samples', express.static(directory));
-        server = http.createServer(expressApp);
-        server.listen(1024, () => {
-            console.log('Sample library server listening on port 1024');
-            mainWindow.webContents.send('updateSamples', samples);
-        });
-
-        store.set('sampleDirectory', directory);
-    });
+function formatUrl(url) {
+    return url.replace(/ /g, '%20');
+}
+function formatItem(name, url) {
+    const [, ext] = name.split(".");
+    const group = url.split("/")[url.split("/").length - 2];
+    return ['wav', 'flac', 'mp3'].includes(ext) 
+        ? { 
+            group, 
+            url: formatUrl('http://localhost:6060/' + group + '/' + name)
+        } : false;
 }
 
-app.on('ready', () => {
-    const directory = store.get('sampleDirectory');
-    // TODO: reinstate once we have main win
-    // directory && serveSamples(directory);
-});
+function compile(array) {
+    return array
+        .map(({path, name, children}) => children
+            ? compile(children)
+            : formatItem(name, path)
+        )
+        .filter(path => path)
+        .flat(128)
+}
+
+const compileSamples = (dirs) => compile(dirs)
+    .reduce((obj, item) => ({
+        ...obj,
+        [item.group]: obj[item.group] ? [...obj[item.group], item.url] : [item.url]
+    }), {})
+
+const serveSamples = function(directory) {
+    // clean up old server
+    server && server.close();
+    const tree = dirTree(directory);
+
+    try {
+        const samples = compileSamples(tree.children);
+        const json = JSON.stringify(samples);
+
+        fs.writeFile(directory + '/samples.json', json, 'utf8', (err) => {
+            err
+                ? console.log(`Error writing samples file: ${err}`)
+                : console.log(`Samples file is written successfully!`);
+        });
+    
+        expressApp.use(cors());
+        expressApp.use('/', express.static(directory));
+        server = http.createServer(expressApp);
+        server.listen(6060, () => console.log('Sample library server listening on port 6060'));
+    
+        return true;
+    } catch (e) {
+        // TODO: send error to main window
+        console.error(e);
+        return false;
+    }
+}
 
 app.on('quit', () => {
-    // console.log('Shutting down sample server');
-    // server && server.close();
+    console.log('Shutting down sample server');
+    server && server.close();
 })
 
 module.exports.serveSamples = serveSamples;
