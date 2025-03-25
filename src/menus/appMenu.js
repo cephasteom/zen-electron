@@ -11,7 +11,7 @@ module.exports = isMac ? [{
             const icon = nativeImage.createFromPath(iconPath);
             dialog.showMessageBox({
                 title: 'About',
-                message: 'Zenq v' + app.getVersion(),
+                message: 'Zen v' + app.getVersion() +'\nCreated by: Cephas Teom',
                 buttons: ['OK'],
                 icon: icon
              });
