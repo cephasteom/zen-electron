@@ -31,15 +31,8 @@ module.exports.generateFileMenu = ({
                         ]
                     }).then(({canceled, filePaths}) => {
                         if (canceled) return;
-                        console.log(filePaths[0]);
-                        // check if the file is a JS file
-                        if (filePaths[0].endsWith('.js')) {
-                            // get the file as a string
-                            const file = fs.readFileSync(filePaths[0], 'utf8');
-                            console.log(file);
-                            // TODO: send to main window
-                            mainWindow.webContents.send('load', file);
-                        } 
+                        const file = fs.readFileSync(filePaths[0], 'utf8');
+                        mainWindow.webContents.send('load', file);
                     })
                 }
             },
