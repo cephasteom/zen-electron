@@ -11,9 +11,16 @@ let server;
 function formatUrl(url) {
     return url.replace(/ /g, '%20');
 }
+
+// Replace double backslashes with forward slashes
+function convertWindowsPath(inputPath) {
+    return inputPath.replace(/\\/g, '/');
+}
+
 function formatItem(name, url) {
     const [, ext] = name.split(".");
-    const group = url.split("/")[url.split("/").length - 2];
+    let parsedUrl = convertWindowsPath(url);
+    const group = parsedUrl.split("/")[parsedUrl.split("/").length - 2];
     return ['wav', 'flac', 'mp3'].includes(ext) 
         ? { 
             group, 
