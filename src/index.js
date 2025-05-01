@@ -9,7 +9,7 @@ const store = new Store();
 
 require('dotenv').config();
 
-const isLocalDevelop = process.env.IS_LOCAL_DEVELOP === 'true';
+const isLocalDevelop = process.env.IS_LOCAL_DEVELOP && (process.env.IS_LOCAL_DEVELOP === 'true');
 
 const loadURL = serve({directory: './src/app'});
 
