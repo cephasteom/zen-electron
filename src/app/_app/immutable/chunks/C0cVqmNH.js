@@ -1,0 +1,1 @@
+function o(){typeof document>"u"||typeof window>"u"||(window.electronAPI.onLoad(e=>window.dispatchEvent(new CustomEvent("onLoadCode",{detail:{code:e}}))),window.electronAPI.onGetCode(()=>{const e=localStorage.getItem("z.code")||"";window.electronAPI.getCodeResponse(e)}))}const n=()=>typeof window<"u"&&!!window.isApp;export{o as a,n as i};
