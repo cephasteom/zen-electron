@@ -1,7 +1,7 @@
 {
   "name": "zen-electron",
   "productName": "Zen",
-  "version": "4.3.0",
+  "version": "5.0.0",
   "description": "A live coding environment with quantum algorithm integration",
   "main": "src/index.js",
   "scripts": {
