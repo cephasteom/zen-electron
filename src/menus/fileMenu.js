@@ -63,6 +63,8 @@ module.exports.generateFileMenu = ({
                     }).then(({canceled, filePaths}) => {
                         if (canceled) return;
                         const file = fs.readFileSync(filePaths[0], 'utf8');
+                        const fileName = filePaths[0].split('/').pop();
+                        mainWindow.setTitle(`${fileName}`);
                         mainWindow.webContents.send('load', file);
                         store.set('currentFile', filePaths[0]);
                     })

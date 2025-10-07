@@ -2,7 +2,7 @@ module.exports = {
   packagerConfig: {
     asar: true,
     icon: './src/assets/icons/karma',
-    executableName: 'zen-electron'
+    executableName: 'zen'
   },
   rebuildConfig: {},
   makers: [
