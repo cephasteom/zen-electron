@@ -1,0 +1,190 @@
+@import '@fontsource/fira-mono';
+
+@font-face {
+    font-family: 'Lato Medium';
+    font-style: normal;
+    font-weight: 500;
+    src: url('/fonts/Lato/Lato-Regular.ttf'); 
+}
+
+@font-face {
+    font-family: 'Lato Bold';
+    font-style: normal;
+    font-weight: 500;
+    src: url('/fonts/Lato/Lato-Bold.ttf'); 
+}
+
+@font-face {
+    font-family: 'Lato Semi-Bold';
+    font-style: normal;
+    font-weight: 700;
+    src: url('/fonts/Lato/Lato-Regular.ttf'); 
+}
+
+@font-face {
+    font-family: 'Ubuntu Bold';
+    font-style: normal;
+    font-weight: 500;
+    src: url('/fonts/Ubuntu/Ubuntu-Bold.ttf'); 
+}
+
+:root {
+    --flow-space: clamp(1rem, 1.2rem + 0.89vw, 1rem);
+	--font-body: Menlo, Monaco, "Courier New", monospace;
+	--font-mono: 'Fira Mono', monospace;
+    --text-base: 1rem;
+    --text-sm: 1rem;
+    --text-xs: .75rem;
+    --text-xxs: 0.5rem;
+    --text-spacing: 0.1rem;
+	--color-bg-0: rgb(202, 216, 228);
+	--color-bg-1: hsl(209, 36%, 86%);
+	--color-bg-2: hsl(224, 44%, 95%);
+	--color-text: rgba(0, 0, 0, 0.7);
+	--column-width: 42rem;
+	--column-margin-top: 4rem;
+	font-family: var(--font-body);
+	color: var(--color-text);
+    --max-width: 1600px;
+
+    --color-theme-1: #00f6ff; /* Laser Cyan */
+    --color-theme-2: #00ff9f; /* Hyper Neon Green */
+    --color-theme-3: #ff1fff; /* Ultraviolet Magenta */
+    --color-theme-4: #ff6c00;/* Blazing Neon Orange */    
+    --color-theme-5: #faff00;/* Electric Acid Yellow */
+    --color-yellow: #fdf6f0;  /* Warm Gold */
+    --color-grey-lighter: #fdf6f0; /* Blush White */
+    --color-grey-light: #e7dcd7;   /* Pale Rose Grey */
+    --color-grey-light-mid: #c8b8b2; /* Warm Mid Grey */
+    --color-grey-mid: #a89c96;       /* Soft Clay Grey */
+    --color-grey-dark: #7e6d66;      /* Cocoa Brown */
+    --color-grey-darker: #5e4f49;    /* Deep Earth Grey (moderated) */
+    --color-grey-darkest: #2f2521;   /* Muted Charcoal Brown */
+    --color-black: #15110f; /* Near-black with warm brown tone */
+    --color-white: #d4d4d4; /* Soft White */
+    --color-pink: #f8d7da; /* Blush Pink */
+    --color-box-shadow: rgba(60, 40, 40, 0.6); /* Warm Shadow */
+
+}
+
+body {
+    font-family: var(--font-body);
+    background: var(--color-black);
+}
+
+h1 {
+    color: var(--color-yellow);
+    font-size: clamp(2.25rem, 1.82rem + 2.14vw, 3.75rem);
+}
+
+h2 {
+    color: var(--color-yellow);
+    font-size: clamp(1.75rem, 1.39rem + 1.79vw, 3rem);
+}
+
+h3 {
+    color: var(--color-yellow);
+    font-size: clamp(1.25rem, 1.11rem + 0.71vw, 1.75rem);
+}
+
+h4 {
+    color: var(--color-yellow);
+    font-size: clamp(1.125rem, 1.09rem + 0.18vw, 1.25rem);
+}
+
+p {
+    color: var(--color-yellow);
+    font-size: var(--text-base);
+}
+
+html {
+    background-color: var(--color-black);
+    font-family: var(--font-body);
+}
+
+.container-main {
+    margin-top: 0.5rem;
+}
+.container {
+    padding: 0 1.5rem;
+}
+
+a,
+a > span,
+.tsd-accordion-summary span { 
+	color: var(--color-theme-1);
+	text-decoration: none;
+}
+
+header {
+    border-bottom: 0;
+    height: 1.5rem;
+}
+
+#tsd-search-trigger {
+    width: auto;
+    margin-top: 1.5rem;
+    background: var(--color-black);
+    opacity: 1;
+    padding: 0 0 0 0.5rem;
+}
+
+#tsd-search-trigger svg {
+    height: 1.5rem;
+    width: auto;
+}
+
+.col-content .tsd-accordion-summary {
+    display: none;
+}
+
+.tsd-hierarchy,
+.tsd-sources li,
+.tsd-signature-type,
+ul.tsd-parameter-list, ul.tsd-type-parameter-list {
+    color: var(--color-yellow);
+}
+
+.tsd-page-toolbar {
+    background: var(--color-black);
+}
+
+.tsd-toolbar-contents {
+    justify-content: flex-end;
+}
+
+.tsd-toolbar-contents > a {
+    display: none;
+}
+
+a:hover,
+a:hover > span {
+    color: var(--color-theme-3);
+	text-decoration: underline;
+}
+
+.tsd-page-title,
+.page-menu,
+.tsd-navigation > a,
+footer
+{
+    display: none;
+}
+
+.tsd-panel-group {
+    margin: 0;
+}
+
+.col-sidebar {
+    max-height: none;
+}
+
+#tsd-search[open] {
+    background: var(--color-grey-darkest);
+    border-radius: 0;
+}
+
+#tsd-search-input {
+    border-radius: 0;
+    background-color: var(--color-grey-dark);
+}
